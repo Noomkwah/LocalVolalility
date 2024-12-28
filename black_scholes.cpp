@@ -18,7 +18,7 @@ float d_minus(float S, float K, float T, float sigma, float r, float q) {
 }
 
 // Function to calculate the price of a call option using the Black-Scholes formula
-float BS_Call_price(float S, float K, float T, float sigma, float r, float q) {
+float BS_Call(float S, float K, float T, float sigma, float r, float q) {
     float d_plus_ = d_plus(S, K, T, sigma, r, q);
     float d_minus_ = d_minus(S, K, T, sigma, r, q);
     return S * std::exp(-q * T) * normal_cdf(d_plus_) - K * std::exp(-r * T) * normal_cdf(d_minus_);
@@ -31,7 +31,7 @@ int main() {
     float T = 0.5f;         // Time to maturity (in years)
     float sigma = 0.2f;     // Volatility
     float r = 0.05f;        // Risk-free rate
-    float q = 0.02f;        // Dividend yield
+    float q = 0.00f;        // Dividend yield
 
     // Calculate the call price
     float call_price = BS_Call(S, K, T, sigma, r, q);
